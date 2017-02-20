@@ -1,2 +1,4 @@
 set mouse=a
-map <F7> mzgg=G`z
+map <F6> mzgg=G`z
+map <F7> :tabn<CR>
+map <F8> :tabp<CR>
