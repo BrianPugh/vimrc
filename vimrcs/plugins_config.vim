@@ -142,6 +142,7 @@ let g:go_fmt_command = "goimports"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_loc_list_height=3
 " Python
 let g:syntastic_python_checkers=['pyflakes']
 
