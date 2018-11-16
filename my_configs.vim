@@ -24,3 +24,6 @@ call plug#end()
 
 " Fuzzy Finder Mapping
 map ; :Files<CR>   "maps semicolon to activate fzf"
+
+" NerdTree Mapping
+map <C-o> :NERDTreeToggle<CR>
