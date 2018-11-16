@@ -11,6 +11,11 @@ set pastetoggle=<F2> " F2 to toggle paste mode
 set nofoldenable     " Disable folding
 set conceallevel=2   " Disable Conceal
 
+" Faster tabbing
+map t :tabe<CR>
+map h :tabp<CR>
+map l :tabn<CR>
+
 
 " Markdown Preview
 let vim_markdown_preview_github=1
