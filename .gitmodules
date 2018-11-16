@@ -10,3 +10,6 @@
 [submodule "my_plugins/indentline"]
 	path = my_plugins/indentline
 	url = https://github.com/yggdroot/indentline
+[submodule "my_plugins/vim-plugin-AnsiEsc"]
+	path = my_plugins/vim-plugin-AnsiEsc
+	url = https://github.com/powerman/vim-plugin-AnsiEsc.git
