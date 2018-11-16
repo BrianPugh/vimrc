@@ -39,7 +39,7 @@ function! ctrlp#decls#accept(mode, str) abort
     let vals = matchlist(a:str, '|\(.\{-}\):\(\d\+\):\(\d\+\)\s*\(.*\)|')
 
     " i.e: main.go
-    let filename =  vals[1] 
+    let filename =  vals[1]
     let line =  vals[2]
     let col =  vals[3]
 
@@ -60,41 +60,36 @@ function! ctrlp#decls#enter() abort
   let s:current_dir = fnameescape(expand('%:p:h'))
   let s:decls = []
 
-  let bin_path = go#path#CheckBinPath('motion')
-  if empty(bin_path)
-    return
-  endif
-  let command = printf("%s -format vim -mode decls", bin_path)
-  let command .= " -include ".  get(g:, "go_decls_includes", "func,type")
+  let l:cmd = ['motion',
+        \ '-format', 'vim',
+        \ '-mode', 'decls',
+        \ '-include', go#config#DeclsIncludes(),
+        \ ]
 
   call go#cmd#autowrite()
 
   if s:mode == 0
     " current file mode
-    let fname = expand("%:p")
+    let l:fname = expand("%:p")
     if exists('s:target')
-      let fname = s:target
+      let l:fname = s:target
     endif
 
-    let command .= printf(" -file %s", fname)
+    let cmd += ['-file', l:fname]
   else
     " all functions mode
-    let dir = expand("%:p:h")
+    let l:dir = expand("%:p:h")
     if exists('s:target')
-      let dir = s:target
+      let l:dir = s:target
     endif
 
-    let command .= printf(" -dir %s", dir)
+    let cmd += ['-dir', l:dir]
   endif
 
-  let out = go#util#System(command)
-  if go#util#ShellError() != 0
-    call go#util#EchoError(out)
+  let [l:out, l:err] = go#util#Exec(l:cmd)
+  if l:err
+    call go#util#EchoError(l:out)
     return
-  endif
-
-  if exists("l:tmpname")
-    call delete(l:tmpname)
   endif
 
   let result = eval(out)
@@ -119,10 +114,10 @@ function! ctrlp#decls#enter() abort
       let space .= " "
     endfor
 
-    call add(s:decls, printf("%s\t%s |%s:%s:%s|\t%s", 
+    call add(s:decls, printf("%s\t%s |%s:%s:%s|\t%s",
           \ decl.ident . space,
           \ decl.keyword,
-          \ fnamemodify(decl.filename, ":t"),
+          \ fnamemodify(decl.filename, ":."),
           \ decl.line,
           \ decl.col,
           \ decl.full,
@@ -135,7 +130,7 @@ function! s:enable_syntax() abort
     return
   endif
 
-  syntax match CtrlPIdent      '\zs\h\+\ze\s' 
+  syntax match CtrlPIdent      '\zs\h\+\ze\s'
   syntax match CtrlPKeyword		 '\zs[^\t|]\+\ze|[^|]\+:\d\+:\d\+|'
   syntax match CtrlPFilename   '|\zs[^|]\+:\d\+:\d\+\ze|'
   syntax match CtrlPSignature  '\zs\t.*\ze$' contains=CtrlPKeyWord,CtrlPFilename
