@@ -28,7 +28,7 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Fuzzy Finder Mapping
-map ; :Files<CR>   "maps semicolon to activate fzf"
+map ; :Files<CR>
 
 " NerdTree Mapping
 map <C-o> :NERDTreeToggle<CR>
