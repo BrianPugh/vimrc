@@ -1,3 +1,6 @@
 [submodule "my_plugins/vim-markdown-preview"]
 	path = my_plugins/vim-markdown-preview
 	url = https://github.com/JamshedVesuna/vim-markdown-preview.git
+[submodule "my_plugins/vim-eunuch"]
+	path = my_plugins/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
