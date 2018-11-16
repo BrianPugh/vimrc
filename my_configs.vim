@@ -27,3 +27,7 @@ map ; :Files<CR>   "maps semicolon to activate fzf"
 
 " NerdTree Mapping
 map <C-o> :NERDTreeToggle<CR>
+
+" Indent Highlighting
+let g:indent_guides_enable_on_vim_startup = 0 "color bars"
+let g:indentLine_enabled = 1 "thin lines"

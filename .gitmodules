@@ -4,3 +4,9 @@
 [submodule "my_plugins/vim-eunuch"]
 	path = my_plugins/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
+[submodule "my_plugins/vim-indent-guides"]
+	path = my_plugins/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides
+[submodule "my_plugins/indentline"]
+	path = my_plugins/indentline
+	url = https://github.com/yggdroot/indentline
