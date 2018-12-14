@@ -16,10 +16,8 @@ map t :tabe<CR>
 map h :tabp<CR>
 map l :tabn<CR>
 
-
 " Markdown Preview
 let vim_markdown_preview_github=1
-
 
 " Plug Plugins
 call plug#begin('~/.vim_runtime/plugged')
