@@ -23,7 +23,15 @@ let vim_markdown_preview_github=1
 call plug#begin('~/.vim_runtime/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8'
 call plug#end()
+
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_goto_buffer_command='split'
+map <C-g>  :tab YcmCompleter GoToDefinitionElseDeclaration<CR>
+let python_highlight_all=1
 
 " Fuzzy Finder Mapping
 map ; :Files<CR>
