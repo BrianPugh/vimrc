@@ -179,3 +179,9 @@ let g:ale_lint_on_enter = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_enabled=1
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
+
+"""
+" => riv.vim (RST Viewer)
+"""""""
+let g:riv_disable_folding = 1
+let g:instant_rst_browser = 'google-chrome'

@@ -4,7 +4,7 @@ set number           "Enable Line Numbers"
 set colorcolumn=81   "Red Column at 81 character mark"
 
 " General Nice Things
-set ttymouse=xterm2  " Enable Mouse"
+set ttymouse=sgr  " Enable Mouse"
 set mouse=a          " Enable Mouse"
 set expandtab        " Expand Tabs to 4 spaces"
 set pastetoggle=<F2> " F2 to toggle paste mode
@@ -23,6 +23,8 @@ let vim_markdown_preview_github=1
 call plug#begin('~/.vim_runtime/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
+Plug 'rykka/riv.vim'
+Plug 'rykka/InstantRst'
 call plug#end()
 
 " Fuzzy Finder Mapping
